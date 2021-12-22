@@ -1,0 +1,11 @@
+.container{
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 350px 900px;
+}
+

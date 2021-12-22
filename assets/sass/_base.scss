@@ -1,0 +1,177 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap');
+
+/*============== VARIABLES ===================*/
+
+/*============== Colors =================*/
+
+$pr-dark-magenta: hsl(300, 43%, 22%);
+$pr-pink: hsl(333, 80%, 67%);
+$neutral-dark-magenta: hsl(303, 10%, 53%);
+$neutral-light-magenta: hsl(300, 24%, 96%);
+$white: hsl(0, 0%, 100%);
+
+/*============== Font Weights =============*/
+
+$font-regular: 400;
+$font-medium: 500;
+$font-bold: 700;
+
+/*============== Font Sizes ==============*/
+
+$font-body: 15px;
+
+
+/*============== BASE ===============*/
+
+*,
+::after,
+::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-size: $font-body;
+  background-image: url(/assets/images/bg-pattern-top-mobile.svg), url(/assets/images/bg-pattern-bottom-mobile.svg);
+  background-repeat: no-repeat;
+  background-position: top 0 left 0, bottom 0 left 0;
+}
+
+h3{
+  font-size: inherit;
+}
+
+/*============== MIXINGS ==============*/
+
+@mixin flex-container($main, $cross, $wrap){
+  display: flex;
+  justify-content: $main;
+  align-items: $cross;
+  flex-wrap: $wrap;
+}
+
+/*============== REVIEWS ================*/
+
+.reviews{
+  font-family: 'Spartan', sans-serif;
+
+  /*============ Header =============*/
+
+  &__header{
+    margin-top: 6rem;
+    text-align: center;
+
+    h2{
+      margin: 0 auto;
+      font-size: 2.25em;
+      color: $pr-dark-magenta;
+      font-weight: $font-bold;
+      width: 70%;
+      line-height: 1em;
+    }
+
+    p{
+      margin: 0 auto;
+      width: 28ch;
+      font-weight: $font-medium;
+      color: $neutral-dark-magenta;
+      margin-top: 2rem;
+      line-height: 1.5em;
+    }
+  }
+
+  /*=========== Stars =============*/
+  
+  &__stars{
+    @include flex-container(space-between, center, nowrap);
+    flex-direction: column;
+    margin-top: 3rem;
+
+   &-item{
+      @include flex-container(space-between, center, nowrap);
+      flex-direction: column;
+      background-color: $neutral-light-magenta;
+      width: 90%;
+      border-radius: .25rem;
+
+      .stars__group{
+	margin-top: 1.25rem;
+
+	img{
+	  width: 23px;
+	  padding: 0 .15rem;
+	}
+      }
+
+      h3{
+	color: $pr-dark-magenta;
+	font-size: inherit;
+	padding: 1rem;
+      }
+    }
+  }
+
+  /*============ Users ==============*/
+
+  &__users{
+    width: 90%;
+    margin: 3rem auto 0;
+    @include flex-container(space-between, center, nowrap);
+    flex-direction: column;
+
+    &-card{
+      width: 100%;
+      background-color: $pr-dark-magenta;
+      border-radius: .5rem;
+      padding: 2rem;
+    }
+
+    .card__profile{
+      margin: .5rem 0 2rem;
+      @include flex-container(space-center, center, wrap);
+      
+      &-pic{
+	border-radius: 100%;
+	width: 3rem;
+      }
+
+      h3{
+	margin-left: 2rem;
+	color: $white;
+      }
+
+      span{
+	padding: 0.25rem 0;
+	display:block;
+	color: $pr-pink; 
+	font-weight: $font-regular;
+      }
+    }
+
+    .card__text{
+      color: $neutral-light-magenta; 
+      font-weight: $font-medium;
+      line-height: 1.5rem;
+      font-size: .8rem;
+      width: 25ch;
+    }
+
+  }
+
+
+}
+
+/*=========== FOOTER ===================*/
+
+.attribution {
+  margin: 2rem auto;
+  font-size: 11px;
+  text-align: center;
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}
+
+

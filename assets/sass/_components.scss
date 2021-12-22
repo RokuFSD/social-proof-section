@@ -1,0 +1,107 @@
+@use "base" as b;
+
+/*============= MEDIA QUERIES ================*/
+
+@media (min-width: 1200px) {
+  body {
+    background: url(/assets/images/bg-pattern-top-desktop.svg),
+      url(/assets/images/bg-pattern-bottom-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: top 0 left 0, right 0 bottom 0;
+    height: 100vh;
+  }
+
+  .container {
+    max-width: 1200px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 300px 330px;
+    column-gap: 10px;
+  }
+
+  /*============= REVIEWS ================*/
+  .reviews {
+    /*=========== Header =============*/
+
+    &__header {
+      text-align: left;
+      margin-top: 5.5rem;
+
+      h2 {
+        font-size: 3em;
+        margin-left: 0;
+        width: 12ch;
+      }
+      p {
+        margin-left: 0;
+        width: 37ch;
+        margin-top: 0.5rem;
+      }
+    }
+    /*========= Stars ==========*/
+
+    &__stars {
+      @include b.flex-container(space-between, center, nowrap);
+      margin-top: 6rem;
+      flex-direction: column;
+
+      &-item {
+        width: 480px;
+        @include b.flex-container(flex-start, center, nowrap);
+        flex-direction: row;
+        padding: 0.25rem 1.75rem;
+        border-radius: 0.5rem;
+
+        h3 {
+          margin-left: 2rem;
+        }
+        &:nth-child(1) {
+          align-self: flex-start;
+        }
+
+        &:last-child {
+          align-self: flex-end;
+        }
+
+        .stars__group {
+          margin: 0;
+
+          img {
+            width: 22px;
+          }
+        }
+      }
+    }
+    /*========= Users ===========*/
+
+    &__users {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      @include b.flex-container(center, center, nowrap);
+      flex-direction: row;
+      width: 100%;
+
+      &-card {
+        max-width: 380px;
+
+        &:first-child {
+          align-self: flex-start;
+        }
+
+        &:nth-child(2) {
+          margin: auto 2.25rem;
+        }
+
+        &:last-child {
+          align-self: flex-end;
+        }
+
+        .card__text {
+          width: 29ch;
+        }
+      }
+    }
+  }
+}
